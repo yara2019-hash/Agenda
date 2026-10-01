@@ -3,8 +3,8 @@
 include('../../config/conexao.php');
 
 // 1. Verificação do parâmetro enviado na URL
-if (isset($_GET['idDel'])) {
-    $id = $_GET['idDel'];
+if (isset($_GET['idDelete'])) {
+    $id = $_GET['idDelete'];
 
     // 2. Consulta para recuperar o nome da imagem cadastrada
     $select = "SELECT foto_contatos FROM tb_contatos WHERE id_contatos=:id";
@@ -35,7 +35,7 @@ if (isset($_GET['idDel'])) {
                 $result->execute();
 
                 // 5. Redirecionamento após o sucesso
-                header("Location: ../home.php");
+                header("Location: ../home.php?acao=relatorio");
 
             } catch (PDOException $e) {
                 echo "<strong>ERRO DE DELETE: </strong>" . $e->getMessage();
